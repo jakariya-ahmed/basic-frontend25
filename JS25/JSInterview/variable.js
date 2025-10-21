@@ -76,7 +76,7 @@ for (let i = 0; i < 3; i++) {
 // 0.1 Block scoped => visible within the block it is defined
 {
     let city = "Dhaka";
-    console.log(city); // Output: Dhaka
+    //console.log(city); // Output: Dhaka
 }
 // console.log(city); // ReferenceError: city is not defined 
 
@@ -100,7 +100,6 @@ level = 3; // Update is allowed
 }
 
 // 0.4 let in loop 
-
 let funcsLet = [];
 for (let i = 0; i < 4; i++) {
     funcsLet.push(i);
@@ -122,18 +121,45 @@ var g2 = "Global Var";
 
 
 
+/* ************ 3.const Expalination with example: */
+// 0.1 Declaration and initialization
+const pi = 3.14159;
+//const b; // TypeError: missing initializer in const declaration
+//pi = 3.14; // TypeError: Assignment to constant variable
+
+//console.log(pi);
 
 
+// 0.2 Hoisting
+//console.log(hoistedConst); // ReferenceError: Cannot access 'hoistedConst' before initialization
+const hoistedConst = "I am not hoisted";
 
 
+// 0.3 Block scoped
+{
+    const country = "BD";
+
+}
+// console.log(country); // ReferenceError: country is not defined
 
 
+// 0.4 No Re-declaration and no reassignment allowed
+const maxScore = 50;
+//maxScore = 60; // TypeError: Assignment to constant variable
+//const maxScore = 70;// SyntaxError: Identifier 'maxScore' has already been declared 
 
 
+// 0.5 const with objects and arrays
+const person = { name: "Jakariya Ahmed"}
 
+person.name = "jakariya Aman"; // Allowed: modifying properties
+//person = {name: "jakariya Ahmad"}; // TypeError: Assignment to constant variable
 
+const nums = [1, 2, 3];
+nums.push(4)
+//nums = []; // TypeError: Assignment to constant variable
 
-
+console.log(nums);
 
 
 

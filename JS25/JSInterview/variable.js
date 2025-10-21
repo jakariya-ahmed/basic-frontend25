@@ -22,15 +22,20 @@ function varExample() {
 // 0.2 Function scoped example:
 function varFunctionScope() {
     var secretId = 12345; // Function scoped variable
-
+    let custId;
     if (true) {
-        let userId = 67890; // Block scoped variable
+        custId = 58585959;
+        var userId = 67890;
+         // Block scoped variable
         console.log(secretId); // Accessible here
+        console.log(custId);
     }
 
     console.log(secretId); // Accessible here
-    //console.log(userId); // Error: userId is not defined
+    console.log(userId); // Error: userId is not defined
+    console.log(custId);
 }
+
 
 // varFunctionScope();
 
@@ -48,19 +53,72 @@ score = 30; // Update is allowed
 // let nameLet = "Alice";
 // let nameLet = "Bob"; // Error: Identifier 'nameLet' has already been declared
 // nameLet = "Charlie"; // Update is allowed
-console.log("var score:", score); // Output: var score: 30
+// console.log("var score:", score); // Output: var score: 30
 
+var funcs = [];
+// for (var i = 0; i < 3; i++) {
+//     funcs.push(function(){console.log(i); });
+// }
 
+for (let i = 0; i < 3; i++) {
+    funcs.push(function() {console.log(i); })
+}
+
+// funcs[0] ();
+// funcs[1] ();
+// funcs[2] ();
 
 
 
 
 
 /* ************ 2.let Expalination with example: */
+// 0.1 Block scoped => visible within the block it is defined
+{
+    let city = "Dhaka";
+    console.log(city); // Output: Dhaka
+}
+// console.log(city); // ReferenceError: city is not defined 
 
 
+// 0.2 Hoisted
+//console.log(usename); // ReferenceError: Cannot access 'usename' before initialization
+let usename = "user123";
 
 
+// 0.3 No Re-declaration but reassignment allowed
+// let level = 0;
+ let level = 1;
+//let level = 2; // Error: Identifier 'level' has already been declared
+level = 2;
+level = 3; // Update is allowed
+//console.log('Your lever is', level); // Output: Your lever is 3
+// Block scope example: 
+{
+    let level = 5; // Different scope
+    //console.log("Block level is:", level);
+}
+
+// 0.4 let in loop 
+
+let funcsLet = [];
+for (let i = 0; i < 4; i++) {
+    funcsLet.push(i);
+}
+
+// funcsLet[0] ();
+// funcsLet[1] ();
+// funcsLet[2] ();
+// funcsLet[3] ();
+// console.log(funcsLet);
+// Output: 0 1 2 3
+
+
+// 0.5 let in Global
+let g1 = "Global Let";
+var g2 = "Global Var";
+//console.log(window.g1); // Output: undefined
+//console.log(window.g2); // Output: Global Var
 
 
 

@@ -1,0 +1,16 @@
+{
+    "name": "basic-ts",
+    "version": "1.0.0",
+    "description": "Learning Basic Typescript from Chatgpt",
+    "main": "main.ts",
+    "scripts": {
+        "dev": "nodemon --exec node --loader ts-node/esm main.ts"
+    },
+    "author": "Jakariya Aman",
+    "license": "MIT",
+    "devDependencies": {
+        "nodemon": "^3.1.10",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.3"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "name": "basic-js",
+    "version": "1.0.0",
+    "description": "Basic JavaScript with Interview Questions",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon"
+    },
+    "author": "Jakariya Ahmed",
+    "license": "MIT"
+}
+
+

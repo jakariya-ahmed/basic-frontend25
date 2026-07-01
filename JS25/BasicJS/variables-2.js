@@ -35,13 +35,37 @@ var previousBalance = 2000;
     previousBalance = 3000; // Reassigning the value of previousBalanace
 // console.log("Previous Balance:", previousBalance); // Output: Previous Balance: 2000
 
-// const
+// const with variable and object
 const favoriteColor = "Orange";
     // favoriteColor = "Sky Blue"; //TypeError: Assignment to constant value of favoriteColor
-console.log("Favorite Color:", favoriteColor); // Output: Favorite Color: Orange
+const user = { name: "Jakariya", age: 26 };
+        user.age = 27; // Object property can be reassigned
+
+        
+        
+/************ Redeclaration Variables: *************/
+// var
+var city = "Dhaka";
+var city = "Chittagong"; // Redeclaring the variable city
+
+// let
+let score = 10;
+// let score = 20; // SyntaxError: Identifier 'score' has already been declared
+
+// const
+const balance = 1200;
+const balance = 1500; // SyntaxError: Identifier 'balance' has already been declared
 
 
-/************ Reassignment variables: *************/
+
+
+
+{
+    console.log("This is a block");
+}
+
+
+console.log("Your Current Balance:", balance);
 
 
 

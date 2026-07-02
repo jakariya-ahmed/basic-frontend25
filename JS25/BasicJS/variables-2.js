@@ -54,18 +54,55 @@ let score = 10;
 
 // const
 const balance = 1200;
-const balance = 1500; // SyntaxError: Identifier 'balance' has already been declared
+// const balance = 1500; // SyntaxError: Identifier 'balance' has already been declared
 
 
-
-
-
+/************ Block Scope Variables *************/
+// let
 {
-    console.log("This is a block");
+    let age = 26;
+    // console.log("Your Current Age:", age);
+}
+// console.log("Your Current Age:", age); // ReferenceError: age is not defined
+
+// const
+{
+    const accountNumber = "1234567890";
+    // console.log("Your Current Number:", accountNumber); // Allowed to access inside of block scope
 }
 
+// console.log("Your Current Number:", accountNumber); // ReferenceError: accountNumber is not defined
 
-console.log("Your Current Balance:", balance);
+// var
+{
+    var systemMessage = "System is running smoothly.";
+    // console.log("System Message:", systemMessage);
+}
+// console.log("System Message:", systemMessage);
+
+/// Why Block Scope is Important? Imagine a shopping cart
+let totalPrice = 400;
+let discountPrice = totalPrice;
+let discountAmount = 0;
+let discountApplied = true;
+
+if (discountApplied) {
+    discountAmount = 120;
+    discountPrice -= discountAmount; // Reassigning the value of discountAmount
+}
+
+console.log("Total Price:", totalPrice);
+console.log("Discount Amount:", discountAmount);
+console.log("Discount Price:", discountPrice);
+
+
+
+
+
+
+
+
+
 
 
 

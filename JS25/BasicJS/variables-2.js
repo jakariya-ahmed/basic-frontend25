@@ -81,6 +81,7 @@ const balance = 1200;
 // console.log("System Message:", systemMessage);
 
 /// Why Block Scope is Important? Imagine a shopping cart
+/*
 let totalPrice = 400;
 let discountPrice = totalPrice;
 let discountAmount = 0;
@@ -91,10 +92,46 @@ if (discountApplied) {
     discountPrice -= discountAmount; // Reassigning the value of discountAmount
 }
 
-console.log("Total Price:", totalPrice);
-console.log("Discount Amount:", discountAmount);
-console.log("Discount Price:", discountPrice);
+*/
 
+/*Calculate the total price, discount amount, and discount price based on 
+the shopping cart scenario */
+
+// Original product price before applying any discount
+let totalPrice = 400;
+// Create a separate variable to preserve the original total price
+// All Discount calculations will be performed on this copy of the total price
+let discountPrice = totalPrice;
+// Default discount amount remains 0 unless a discount is applied
+let discountAmount = 0;
+// Indicate whether the customer is eligible for a discount or not
+let discountAppled = true;
+
+
+if (discountAppled) {
+    discountAmount = 120;
+    discountPrice -= discountAmount;
+}
+
+/*
+console.log("Total Price:", totalPrice); // Output: Total Price: 400
+console.log("Discount Amount:", discountAmount);
+console.log("Discount Price:", discountPrice); // Output: Discount Price: 280
+*/
+
+J
+
+
+
+/*====================== Function Scope with let and const ======================*/
+
+
+function getUserInfo() { 
+    // Store the current user's name and value only needed while this function is executes.
+    let userName = "Jakariya Ahmed";
+    console.log("User Name:", userName);
+
+}
 
 
 

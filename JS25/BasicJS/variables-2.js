@@ -119,27 +119,44 @@ console.log("Discount Amount:", discountAmount);
 console.log("Discount Price:", discountPrice); // Output: Discount Price: 280
 */
 
-J
 
 
 
 /*====================== Function Scope with let and const ======================*/
 
+/**
+ * Display user's basic information
+ * The `userName` variable is is local to this function and 
+ * cannot be accessed from the global scope.
+ */
 
 function getUserInfo() { 
     // Store the current user's name and value only needed while this function is executes.
-    let userName = "Jakariya Ahmed";
+    var userName = "Jakariya Ahmed";
     console.log("User Name:", userName);
-
 }
 
 
+// getUserInfo(); // Output: User Name: Jakariya Ahmed
 
 
+/**
+ * Calculate the promotional discount
+ * Although the `discountRate` is declared inside the if block
+ * it remains accessible throughout the entire function because `var` is function-scoped.
+ */
+function calculateDiscount() {
+    let discountAmount;
+    if (true) {
+        var discountRate = 0.1;
+        discountAmount = 100 * discountRate;
+    }
+    console.log("Discount Amount:", discountAmount);
+    console.log("Discount Rate:", discountRate);
+}
 
 
-
-
+calculateDiscount();
 
 
 

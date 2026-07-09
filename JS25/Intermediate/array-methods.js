@@ -112,10 +112,69 @@ const removedFirstGuest = guestList.shift();
  */
 const totalItem = shoppingCart.length;
 
+/**
+ * include();
+ * checks whether an array contains a specific value
+ */
+
+/**
+ * Roles assigned to the authenticated user
+ * `includes()` return true or false value
+ */
+const userRoles = ['admin', 'editor', 'moderator'];
+
+const isAdmin = userRoles.includes('admin');
+;
+
+/**
+ * indexOf()
+ * Return the first index where a value appears
+ */
+const productIndex = shoppingCart.indexOf('mouse');
 
 
+/**
+ * at() -> Returns the element at specified index
+ * Unlike bracket notation ([]), at() also supports negative indices 
+ */
+
+/**
+ * Example:
+ * Customer's order history
+ */
+
+const orders = ["Order-101", "Order-102", "Order-103"];
+
+/**
+ * Retrieve the most recent order using a negative index
+ * 
+ */
+
+const latestOrder = orders.at(-1);
 
 
+/**
+ * user's unique id store the userId refereence 
+ */
+const userIds = ['123', '134', '234', '345'];
 
-console.log("Total Products Cont:", totalItem);
-console.log("products:", shoppingCart);
+/**
+ * User selected by the admin for removal.
+ */
+const userToRemove = '345';
+
+/**
+ * Locate the position of the user in the user list
+ * If the user is not found, `indexOf()` returns -1.
+ */
+const userIndex = userIds.indexOf(userToRemove);
+
+if(userIndex !== -1) {
+    /**
+     * Remove exactly one product from the located position
+     */
+    userIds.splice(productIndex, 1);
+}
+
+
+console.log("Index of User:", userIds);

@@ -193,9 +193,9 @@ const employeeIds = [102, 103, 104, 105];
 const employeeIndex = employeeIds.indexOf(104);
 
 if (employeeIndex !== -1) {
-    console.log(`Employee found at index: ${employeeIndex}`);
+    // console.log(`Employee found at index: ${employeeIndex}`);
 } else {
-    console.log("Employee not found");
+    // console.log("Employee not found");
 }
 
 
@@ -207,7 +207,34 @@ if (employeeIndex !== -1) {
 
 const coupnsList = ['vip_coupon', 'cursor_120', 'normal_coupon'];
 
-console.log(`Coupon is avaiable: ${coupnsList.includes('cursor_120')}`);
+// console.log(`Coupon is avaiable: ${coupnsList.includes('cursor_120')}`);
+
+
+
+/**
+ * find() -> when you need the actual object value
+ * Example:
+ * Employees registered in the company database
+ */
+const employees = [
+    {id: 101, name: 'Jakariya Aman', department: 'Engineering', designation: 'Software Engineer'},
+    {id: 102, name: 'Ali Aman', department: 'Design', designation: 'Graphic Designer'},
+    {id: 103, name: 'Arif Akbar', department: 'Data Expert', designation: 'Data Analytics '},
+    {id: 104, name: 'Sayem Talukdar', department: 'Software Development', designation: 'Web Developer'},
+    {id: 105, name: 'Mussadik ali', department: 'Engineering', designation: 'Software Engineer'},
+];
+
+/**
+ * Retrive the employee whose ID matches the search
+ * `find()` return the employee object itself
+ */
+
+const employeeInfo = employees.find((employee) => {
+    return employee.id === 104; 
+    // console.log(employee.name);
+});
+
+console.log(employeeInfo);
 
 
 // console.log("Index of User:", userIds);

@@ -212,7 +212,7 @@ const coupnsList = ['vip_coupon', 'cursor_120', 'normal_coupon'];
 
 
 /**
- * find() -> when you need the actual object value
+ * find() -> when you need the actual object value by condition is match return value or not
  * Example:
  * Employees registered in the company database
  */
@@ -231,13 +231,37 @@ const employees = [
 
 const employeeInfo = employees.find((employee) => {
     return employee.id === 104; 
-    // console.log(employee.name);
+});
+// console.log(employeeInfo);
+
+
+
+/**
+ * findIndex() -> method return the index of array by condition
+ * if nothin mathes, it return -1;
+ */
+const inventory = [
+    { id: 1, name: "Laptop", stock: 10 },
+    { id: 2, name: "Mouse", stock: 25 },
+    { id: 3, name: "Keyboard", stock: 15 }
+];
+
+/**
+ * Find out product index before updatin its stock quantity
+ */
+
+const productLocation = inventory.findIndex((product) => {
+    return product.id === 2;
 });
 
-console.log(employeeInfo);
+/**
+ * Update the stock only if the product exists.
+ */
+if (productLocation !== -1) {
+    inventory[0].stock += 20;
+}
 
-
-// console.log("Index of User:", userIds);
+console.log(inventory);
 
 
 

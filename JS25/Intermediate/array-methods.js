@@ -12,13 +12,13 @@
 ├── Searching
 │   ├── includes() -> check element is exist in array
 │   ├── indexOf() -> searchin the index number of element
-│   ├── find() -> 
-│   ├── findIndex() -> 
+│   ├── find() -> soft out one item the list of array
+│   ├── findIndex() -> soft out index of item in the array
 │
 ├── Iteration
-│   ├── forEach()
-│   ├── map()
-│   ├── filter()
+│   ├── forEach() -> executes a callback function once for for each elements in array
+│   ├── map() -> create a new array witout modify original array and it can tranforming data 
+│   ├── filter() -> soft out multiple elements by using condition. 
 │   ├── reduce()
 │   ├── some()
 │   └── every()
@@ -243,7 +243,11 @@ const employeeInfo = employees.find((employee) => {
 const inventory = [
     { id: 1, name: "Laptop", price: 35, stock: 10 },
     { id: 2, name: "Mouse", price: 23, stock: 25 },
-    { id: 3, name: "Keyboard", price: 56, stock: 15 }
+    { id: 3, name: "Keyboard", price: 56, stock: 15 },
+    { id: 3, name: "Micro Phone", price: 56, stock: 0 },
+    { id: 3, name: "Head Phone", price: 60, stock: 5 },
+    { id: 3, name: "Air Burd", price: 66, stock: 0 },
+    { id: 3, name: "Pendrive", price: 56, stock: 10 },
 ];
 
 /**
@@ -301,7 +305,7 @@ const discountedProducts = inventory.map((product) => {
     }
 });
 
-
+/*
 discountedProducts.map((pro) => {
     console.log("product name:", pro.name)
     console.log("product name:", pro.price)
@@ -310,7 +314,32 @@ discountedProducts.map((pro) => {
     console.log("product name:", pro.discountedPrice)
 });
 
-// console.log(discountedProducts);
+*/
+
+/**
+ * filter()-> is an array method that creates a new array with condition
+ * used for selecting data
+ * does  not modify the original array
+ */
+
+/**
+ * Disply only products that are currently avaiable
+ * `filter()` creates a new array withour modifying the original array
+ */
+
+const stockProducts = inventory.filter((product) => {
+    return product.stock !== 0;
+});
+
+/**
+ * get only employees who are working in engineering department 
+ */
+
+const engineerEmployees = employees.filter((engineer) => {
+    return engineer.department === 'Engineering';
+});
+
+console.log(engineerEmployees);
 
 
 

@@ -10,10 +10,10 @@
 │   ├── splice()
 │
 ├── Searching
-│   ├── includes()
-│   ├── indexOf()
-│   ├── find()
-│   ├── findIndex()
+│   ├── includes() -> check element is exist in array
+│   ├── indexOf() -> searchin the index number of element
+│   ├── find() -> 
+│   ├── findIndex() -> 
 │
 ├── Iteration
 │   ├── forEach()
@@ -176,5 +176,54 @@ if(userIndex !== -1) {
     userIds.splice(productIndex, 1);
 }
 
+/**
+ * Employes IDs currently registered in system
+ */
+const employeeIds = [102, 103, 104, 105];
 
-console.log("Index of User:", userIds);
+/**
+ * Searc a specific employee ID
+ */
+// const employeeId = 104;
+
+/**
+ * Findout emplyee index of the employes list
+ */
+
+const employeeIndex = employeeIds.indexOf(104);
+
+if (employeeIndex !== -1) {
+    console.log(`Employee found at index: ${employeeIndex}`);
+} else {
+    console.log("Employee not found");
+}
+
+
+/**
+ * includes()
+ * when you only need to know does this value exist?
+ * It return boolean true/false
+ */
+
+const coupnsList = ['vip_coupon', 'cursor_120', 'normal_coupon'];
+
+console.log(`Coupon is avaiable: ${coupnsList.includes('cursor_120')}`);
+
+
+// console.log("Index of User:", userIds);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -261,7 +261,35 @@ if (productLocation !== -1) {
     inventory[0].stock += 20;
 }
 
-console.log(inventory);
+
+
+/**
+ * forEac() -> is an array method that executes a callback function once for each element
+ * forEach() -> does not return a new array
+ * forEach() -> does not mutates the array
+ */
+
+/**
+ * Display each employee 
+ * `forEach()` is ideal when performing an action for every element.
+ */
+
+employees.forEach((employer, i, arr) => {
+    // console.log(`${ i + 1 }.`, employer);
+})
+
+
+
+/**
+ * map() -> is an array method that creates and returns a new array by transforming 
+ * every element of the original array
+ */
+
+
+
+
+
+// console.log(inventory);
 
 
 

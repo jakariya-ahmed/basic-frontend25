@@ -241,9 +241,9 @@ const employeeInfo = employees.find((employee) => {
  * if nothin mathes, it return -1;
  */
 const inventory = [
-    { id: 1, name: "Laptop", stock: 10 },
-    { id: 2, name: "Mouse", stock: 25 },
-    { id: 3, name: "Keyboard", stock: 15 }
+    { id: 1, name: "Laptop", price: 35, stock: 10 },
+    { id: 2, name: "Mouse", price: 23, stock: 25 },
+    { id: 3, name: "Keyboard", price: 56, stock: 15 }
 ];
 
 /**
@@ -285,11 +285,32 @@ employees.forEach((employer, i, arr) => {
  * every element of the original array
  */
 
+/**
+ * Create a new product list wit discounted price
+ * `map()` is used for transform every product
+ * while preserving the original array
+ */
+const DISCOUNT_PERCENTAGE = 15;
+const discountedProducts = inventory.map((product) => {
+    let discountAmount = product.price * (DISCOUNT_PERCENTAGE/100); 
+    return {
+        ...product,
+        discountPercentage: DISCOUNT_PERCENTAGE,
+        discountAmount: discountAmount,
+        discountedPrice: product.price - discountAmount,
+    }
+});
 
 
+discountedProducts.map((pro) => {
+    console.log("product name:", pro.name)
+    console.log("product name:", pro.price)
+    console.log("product name:", pro.stock)
+    console.log("product name:", pro.discountAmount)
+    console.log("product name:", pro.discountedPrice)
+});
 
-
-// console.log(inventory);
+// console.log(discountedProducts);
 
 
 

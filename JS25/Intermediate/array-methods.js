@@ -6,8 +6,8 @@
 │   ├── pop() -> Removes the last element from an array and return that element
 │   ├── shift() -> Removes the first element form an array and return that element
 │   ├── unshift() -> Adds one or more element to the begining of an array and return the new length of array.
-│   ├── slice() -> 
-│   ├── splice()
+│   ├── slice() -> return new array containint a portion of the original array
+│   ├── splice() -> modify the original array by removing,adding,and replacing
 │
 ├── Searching
 │   ├── includes() -> check element is exist in array and return true/false
@@ -24,7 +24,7 @@
 │   └── every()
 │
 ├── Sorting
-│   ├── sort()
+│   ├── sort() -> arrange the elements of an array and modify original array
 │   ├── reverse()
 │
 ├── Flattening
@@ -474,7 +474,35 @@ const removedOrders = orderIds.splice(1,3); // remove and generate new array
  */
 const replaceOrder = orderIds.splice(1,3,"order_04444", "order_055555");
 
-console.log(orderIds);
+
+
+/**
+ * sort() -> arrange elements for ordering
+ * modify array
+ * Example:
+ * sort product by ascending price
+ */
+
+const sortByLowPrice = inventory.sort((a, b) => a.price - b.price);
+
+/**
+ * reverse() -> reverse the current ordering 
+ * example:
+ * Transaction history
+ */
+
+const transtions = ['Deposit', "Transfer", "Bill Payment", "ATM Withdrawal"];
+
+/**
+ * Display the latest transaction
+ */
+
+transtions.reverse();
+
+const latestTransaction = [...transtions].reverse();
+
+
+console.log(latestTransaction);
 
 
 

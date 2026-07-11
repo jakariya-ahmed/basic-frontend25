@@ -6,11 +6,11 @@
 │   ├── pop() -> Removes the last element from an array and return that element
 │   ├── shift() -> Removes the first element form an array and return that element
 │   ├── unshift() -> Adds one or more element to the begining of an array and return the new length of array.
-│   ├── slice()
+│   ├── slice() -> 
 │   ├── splice()
 │
 ├── Searching
-│   ├── includes() -> check element is exist in array
+│   ├── includes() -> check element is exist in array and return true/false
 │   ├── indexOf() -> searchin the index number of element
 │   ├── find() -> soft out one item the list of array
 │   ├── findIndex() -> soft out index of item in the array
@@ -19,8 +19,8 @@
 │   ├── forEach() -> executes a callback function once for for each elements in array
 │   ├── map() -> create a new array witout modify original array and it can tranforming data 
 │   ├── filter() -> soft out multiple elements by using condition. 
-│   ├── reduce()
-│   ├── some()
+│   ├── reduce() -> executes a callback for every element in an arrya with a single value
+│   ├── some() -> checks whether at least one element in the array matches a condition
 │   └── every()
 │
 ├── Sorting
@@ -217,11 +217,11 @@ const coupnsList = ['vip_coupon', 'cursor_120', 'normal_coupon'];
  * Employees registered in the company database
  */
 const employees = [
-    {id: 101, name: 'Jakariya Aman', department: 'Engineering', designation: 'Software Engineer'},
-    {id: 102, name: 'Ali Aman', department: 'Design', designation: 'Graphic Designer'},
-    {id: 103, name: 'Arif Akbar', department: 'Data Expert', designation: 'Data Analytics '},
-    {id: 104, name: 'Sayem Talukdar', department: 'Software Development', designation: 'Web Developer'},
-    {id: 105, name: 'Mussadik ali', department: 'Engineering', designation: 'Software Engineer'},
+    {id: 101, name: 'Jakariya Aman', department: 'Engineering', designation: 'Software Engineer', active: true},
+    {id: 102, name: 'Ali Aman', department: 'Design', designation: 'Graphic Designer', active: true},
+    {id: 103, name: 'Arif Akbar', department: 'Data Expert', designation: 'Data Analytics ', active: false},
+    {id: 104, name: 'Sayem Talukdar', department: 'Software Development', designation: 'Web Developer', active: true},
+    {id: 105, name: 'Mussadik ali', department: 'Engineering', designation: 'Software Engineer', active: false},
 ];
 
 /**
@@ -339,7 +339,93 @@ const engineerEmployees = employees.filter((engineer) => {
     return engineer.department === 'Engineering';
 });
 
-console.log(engineerEmployees);
+/**
+ * reduce() -> execites a callback for every element in an array and reduces the array to a single value
+ * accumulator -> Stores te accumulated result
+ * currentValue -> Current element being processed
+ * initialValue -> Starting value of the accumulator
+ */
+
+inventory.reduce((accumulator, currentProduct) => {
+    return accumulator + currentProduct.price
+}, 0);
+
+/**
+ * Calculate the total order value
+ * `reduce()` combines all product prices into a single total
+ * total -> is accumulator that sotores the running result
+ * product -> currently array element being processed
+ */
+
+const totalPrice = inventory.reduce((total, product) => {
+    return total + product.price;
+}, 0); // { } 0) is initial value of the accumulator(total)
+
+/**
+ * reduce() -> is similar to writing a loop manually
+ */
+
+let total = 0;  // reduce initial value
+
+/**
+ * Visit every product and add its price to the running total
+ */
+for (const product of inventory) {
+    total += product.price;
+}
+
+/**
+ * Count how many employees are currently active
+ */
+const activeEmployees = employees.reduce((count, employee) => {
+    return employee.active ? count + 1 : count;
+}, 0);
+
+
+/**
+ * Find out highest price in products list
+ */
+
+const highestProductPrice = inventory.reduce((max, product) => {
+    return product.price > max ? product.price : max;
+}, 0); 
+
+/**
+ * Manually count how many employees currently active  
+ */
+
+let count = 0;
+
+/**
+ * Visit every employee and increment the counter
+ * if the employee is active 
+ */
+
+for (const employee of employees) {
+    if (employee.active) {
+        count++;
+    }
+}
+
+/**
+ * some() -> cheks at least element in the array matches a condition
+ * return true/false
+ */
+
+/**
+ * Determine whether at least one product is out of stock.
+ */
+const hasOutOfStockProduct = inventory.some((product) => product.stock === 0); // return boolean
+
+/**
+ * every() -> every elements are match return true / not match return false
+ * Example:
+ * Check every product has available in stock
+ */
+
+const productsAvaiable = inventory.every((product) => product.stock > 0); // return true/false 
+
+console.log(productsAvaiable);
 
 
 

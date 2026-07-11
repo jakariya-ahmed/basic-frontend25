@@ -425,7 +425,56 @@ const hasOutOfStockProduct = inventory.some((product) => product.stock === 0); /
 
 const productsAvaiable = inventory.every((product) => product.stock > 0); // return true/false 
 
-console.log(productsAvaiable);
+
+/**
+ * slice() -> return a new array containing a portion of the original array
+ * does not modify the original array
+ * used for coping or extracting elements
+ * systax: array.slice(startIndex, endIndex);  // startIndex: Included, endIndex: Excluded
+ */
+
+/**
+ * Example: Product list
+ * 
+ */
+
+const products = ['Laptop', 'Computer', 'Keyboard', 'Mouse', 'Monitor', 'Tablet', 'Phone'];
+
+/**
+ * Display the first four products
+ */
+
+const firstPageProduct = products.slice(2, 6);
+
+
+/**
+ * Create a shallow copy of array
+ */
+
+const copiedRoles = userRoles.slice();
+
+
+/**
+ * splice() -> modifye the original array by
+ * removing, adding, replacing elements.
+ * Syntax: 
+ * array.splice(startIndex, deleteCount, item,item2, ...);
+ */
+
+
+const orderIds = ['order_112389', 'order_34774', 'order_88558', 'order_084747'];
+
+/**
+ * Remove the cancelled order
+ */
+const removedOrders = orderIds.splice(1,3); // remove and generate new array
+
+/**
+ * Replace order Id
+ */
+const replaceOrder = orderIds.splice(1,3,"order_04444", "order_055555");
+
+console.log(orderIds);
 
 
 

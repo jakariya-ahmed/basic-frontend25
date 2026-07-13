@@ -133,8 +133,125 @@ const employees = [
 ];
 
 
-console.log(invoice);
-console.log(discountedPrice);
+/**
+ * Get all properties from first element
+ */
+
+const employeeFields = Object.values(employees[0]);
+
+/**
+ * Get keys for every employee.
+ */
+
+const employeeKeys = employees.map((empl) => {
+    return Object.keys(empl);
+});
+
+/** 
+ * Solution: 01
+ * Remove the 'Active' property form every employee using Object methods
+ */
+
+const publicEmployees = employees.map((empl) => {
+    return Object.fromEntries(
+        Object.entries(empl).filter(([key]) => {
+            return key !== 'active'
+        })
+    )
+});
+
+/**
+ * Solution: 02
+ * Remove the 'Active' property form every employee using Array mehtods
+ * This is the most common modern JS solution.
+ */
+
+const removeActiveProperty = employees.map(({ active, ...emply}) => {
+    return emply;
+});
+
+/**
+ * Solution: 03
+ * using spread operator and delete
+ */
+
+const removeActiveProperty3 = employees.map((emply) => {
+   
+    const copiedEmployee = { ...emply }
+    delete copiedEmployee.active;
+    return copiedEmployee;
+    // console.log(emply);
+});
+
+/**
+ * Solution: 04
+ * using reduce() operator and push functional programming 
+ */
+
+const publicEmployees4 = employees.reduce((result, employee) => {
+    const { active, ...publicEmployee } = employee;
+    
+    result.push(publicEmployee);
+    return result;
+
+    // console.log(publicEmployee);
+}, []); 
+
+const userList = [
+    {id: 2020, name: "ahmed ali", emai: 'ali@gmail.com', designation: 'engineer'},
+    {id: 2021, name: "ahmed REZA", emai: 'ali@gmail.com', designation: 'developer'},
+    {id: 2022, name: "ahmed HUSSAIN", emai: 'ali@gmail.com', designation: 'archetech'},
+    {id: 2023, name: "ahmed AKBAR", emai: 'ali@gmail.com', designation: 'marketing expert'},
+    {id: 2024, name: "ahmed karim", emai: 'karim@gmail.com', designation: 'mentor'},
+    {id: 2025, name: "ahmed kobir", emai: 'kobir@gmail.com', designation: 'engineer'},
+    {id: 2026, name: "ahmed mulla", emai: 'mulla@gmail.com', designation: 'engineer'},
+    {id: 2027, name: "ahmed oliur", emai: 'oliur@gmail.com', designation: 'Teacher'},
+]
+
+/**
+ * Object.assign()-> Copy or merge objects
+ * Example:
+ * Add salary garde to every employee
+ * Original employee objects remain unchaged
+ */
+
+/**
+ * create a shallow copy
+ */
+const copyUser = Object.assign({}, user);
+
+console.log(copyUser);
+
+const addStatus = userList.map((user) => {
+    return Object.assign({}, user, {
+        status: 'active',
+    });
+});
+
+/**
+ * update single user object value
+ * 
+ */
+const userNumberUpdate = userList.map((user) => {
+    const radomPhoneNumber = '+8801' + Math.floor(Math.random() * 1_000_000_000)
+        .toString()
+        .padStart(9, "0")
+
+    if (user.id === 2025) {
+        return Object.assign({}, user, {
+            phone: radomPhoneNumber
+        });
+    }
+    return user;
+});
+
+
+
+
+
+// console.log(userList);
+// console.log(userNumberUpdate);
+
 
 
 

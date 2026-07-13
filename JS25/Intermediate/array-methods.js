@@ -25,17 +25,17 @@
 │
 ├── Sorting
 │   ├── sort() -> arrange the elements of an array and modify original array
-│   ├── reverse()
+│   ├── reverse() -> reverse the current order of array and mutates the array
 │
 ├── Flattening
-│   ├── flat()
-│   └── flatMap()
+│   ├── flat() -> modern JS Array method introduced in ES2019 that flatten an array
+│   └── flatMap() -> 
 │
 └── Modern ES2023+
-    ├── toSorted()
+    ├── toSorted() -> return a new sorted array without modifying the original array
     ├── toReversed()
     ├── toSpliced()
-    └── with()
+    └── with() -> one element replaced at a spedific index with new array
  * 
  */
 
@@ -502,7 +502,51 @@ transtions.reverse();
 const latestTransaction = [...transtions].reverse();
 
 
-console.log(latestTransaction);
+/**
+ * flat -> creates a new array by removing nested array levels
+ * Exmaple: 
+ */
+
+const categories = [
+    ['Men', "Women"],
+    ["Child", "Baby"],
+    ["adult", "Senior"],
+    ["Chair", "Desk"],
+];
+
+/**
+ * Flatten all categories in one list
+ */
+
+const allCategories = categories.flat(); 
+
+
+/**
+ * flatMap() -> perfoms map() firs then flat(1)
+ * Posts retrieved from the database
+ */
+
+const posts = [
+    {
+        name: "heading one",
+        tags: ["Fashin", "Life Style", "Trending"],
+    },
+    {
+        name: "heading two",
+        tags: ["sports", "world cup", 'fifa 2026'],
+    }
+];
+
+/**
+ * Extract every tag into one array
+ */
+
+const allTags = posts.flatMap((post) => {
+    return post.tags;
+});
+
+
+console.log(allTags);
 
 
 

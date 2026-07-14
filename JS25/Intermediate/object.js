@@ -318,12 +318,38 @@ transtion.status = "Free";
 delete transtion.date;
 
 
+/**
+ * Objext.is() compares two values and returns true/false
+ */
 
-console.log(transtion);
 
+// console.log(NaN === NaN); // return fasle
+// console.log(Object.is(NaN, NaN)); // return true
+// console.log(+0 === -0); // return true
+// log(Object.is(+0, -0));// return fals
 
+/**
+ * Retrive the sutdent info
+ */
+const studentsInfo = [
+    {id: 4848, name: "jafor", fee: 400},
+    {id: 34848, name: "nobin", fee: 500},
+    {id: 4548, name: "iqbal", fee: 300},
+];
 
+const updatedFee = 500;
+/**
+ * update the student fees
+ */
+studentsInfo.map((student) => {
+    if (student.fee < updatedFee) {
+        if (!Object.is(student.fee, updatedFee)) {
+            student.fee = updatedFee;
+        }
+    }
+});
 
+console.log(studentsInfo);
 
 
 

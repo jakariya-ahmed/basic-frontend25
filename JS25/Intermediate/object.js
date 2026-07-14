@@ -246,11 +246,49 @@ const userNumberUpdate = userList.map((user) => {
 });
 
 
+/**
+ * Object.hasOwn() -> checks an object own a property
+ */
 
 
+/**
+ * Check Department is avaiable in employees
+ */
+
+userList.forEach((user) => {
+    if (Object.hasOwn(user, "designation"))  {
+        // console.log(user.designation);
+    } else {
+        // console.log("Department No Assigned");
+    }
+});
+
+
+/**
+ * User Setting Loaded form the database
+ */
+
+const userSetting = {
+    theme: 'dark',
+    language: 'Bangla'
+}
+
+/**
+ * Check the user has configured notification
+ */
+
+if (Object.hasOwn(userSetting, 'notifications')) {
+    console.log(`Notification: ${userSetting.notification}`);
+} else {
+    // console.log("Using default notification settings");
+}
 
 // console.log(userList);
-// console.log(userNumberUpdate);
+
+
+
+
+
 
 
 

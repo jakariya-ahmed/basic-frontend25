@@ -198,14 +198,14 @@ const publicEmployees4 = employees.reduce((result, employee) => {
 }, []); 
 
 const userList = [
-    {id: 2020, name: "ahmed ali", emai: 'ali@gmail.com', designation: 'engineer'},
-    {id: 2021, name: "ahmed REZA", emai: 'ali@gmail.com', designation: 'developer'},
-    {id: 2022, name: "ahmed HUSSAIN", emai: 'ali@gmail.com', designation: 'archetech'},
-    {id: 2023, name: "ahmed AKBAR", emai: 'ali@gmail.com', designation: 'marketing expert'},
-    {id: 2024, name: "ahmed karim", emai: 'karim@gmail.com', designation: 'mentor'},
-    {id: 2025, name: "ahmed kobir", emai: 'kobir@gmail.com', designation: 'engineer'},
-    {id: 2026, name: "ahmed mulla", emai: 'mulla@gmail.com', designation: 'engineer'},
-    {id: 2027, name: "ahmed oliur", emai: 'oliur@gmail.com', designation: 'Teacher'},
+    {id: 2020, name: "ahmed ali", emai: 'ali@gmail.com', designation: 'engineer', status: false},
+    {id: 2021, name: "ahmed REZA", emai: 'ali@gmail.com', designation: 'developer', status: true},
+    {id: 2022, name: "ahmed HUSSAIN", emai: 'ali@gmail.com', designation: 'archetech', status: true},
+    {id: 2023, name: "ahmed AKBAR", emai: 'ali@gmail.com', designation: 'marketing expert', status: true},
+    {id: 2024, name: "ahmed karim", emai: 'karim@gmail.com', designation: 'mentor', status: true},
+    {id: 2025, name: "ahmed kobir", emai: 'kobir@gmail.com', designation: 'engineer', status: false},
+    {id: 2026, name: "ahmed mulla", emai: 'mulla@gmail.com', designation: 'engineer', status: true},
+    {id: 2027, name: "ahmed oliur", emai: 'oliur@gmail.com', designation: 'Teacher', status: false},
 ]
 
 /**
@@ -220,7 +220,7 @@ const userList = [
  */
 const copyUser = Object.assign({}, user);
 
-console.log(copyUser);
+// console.log(copyUser);
 
 const addStatus = userList.map((user) => {
     return Object.assign({}, user, {
@@ -245,6 +245,7 @@ const userNumberUpdate = userList.map((user) => {
     return user;
 });
 
+// console.log(userNumberUpdate);
 
 /**
  * Object.hasOwn() -> checks an object own a property
@@ -283,7 +284,42 @@ if (Object.hasOwn(userSetting, 'notifications')) {
     // console.log("Using default notification settings");
 }
 
-// console.log(userList);
+
+
+/**
+ * Object.freeze() -> makes an object completely immutable(read-only)
+ * Application Configuration
+ */
+const app_config = {
+    companyName: "cursorbyte",
+    version: '1.0.0',
+    enviroment: "production",
+}
+
+/**
+ * Prevent accidental changes
+ */
+// Object.freeze(app_config);
+
+
+/**
+ * Object.seal() -> locks the structure of an object
+ * Allow read and update existing properties
+ */
+transtion = Object.seal({
+    transitionId: '47474awu',
+    amount: 485757,
+    date: Date.now(),
+    status: 'seal'
+});
+
+
+transtion.status = "Free";
+delete transtion.date;
+
+
+
+console.log(transtion);
 
 
 

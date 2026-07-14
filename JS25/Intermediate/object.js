@@ -349,9 +349,38 @@ studentsInfo.map((student) => {
     }
 });
 
-console.log(studentsInfo);
 
+/**
+ * Object.defineProperty() -> create a new property or chagnes an existing property's descriptor
+ * syntax: Object.definePropery(object, propertyName, descriptor);
+ */
 
+/**
+ * Example:
+ * Define a new property
+ */
+
+const order = {};
+
+Object.defineProperty(order, "name", {
+    value: "Man royal watch",
+    // writable: true,
+    // enumerable: false, // keys is return null
+    // configurable: false  // cannot delete 
+});
+
+/**
+ * changed the value
+ */
+order.name = "Man modern green t-shrt"
+
+/**
+ * Object.getOwnPropertyDescriptors();
+ */
+
+const details = Object.getOwnPropertyDescriptors(order);
+
+console.log(details);
 
 
 

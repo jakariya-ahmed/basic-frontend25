@@ -45,8 +45,42 @@ for (let i = 0; i < produtsList.length; i++) {
     /**
      * Store Discount Amount and Discount Price
      */
+    const discountAmount = produtsList[i].price * (discountPercentage / 100);
+    const discountPrice = produtsList[i].price - discountAmount;
+    /**
+     * Add product price property
+     * Add product amount property
+     * using Object.assign() method
+     */
+    
+    Object.assign(produtsList[i], {
+        // discountAmount: discountAmount,
+        // discountPrice: discountPrice,
+    });
+    
 }
 
 
+/**
+* Solution 03: 
+ * By map() -> create new array without modify orignal array
+ */
+
+const applyDiscount = produtsList.map((product) => {
+    /**
+     * Calculate discount amount
+     */
+    const discountAmount = product.price * (discountPercentage/100);
+
+    return {
+        ...product,
+        discountAmount,
+        discountPrice: product.price - discountAmount,
+    }
+    
+});
+
+
+console.log(applyDiscount);
 
 

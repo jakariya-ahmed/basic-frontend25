@@ -26,10 +26,10 @@ for (let i = 0; i < students.length; i++) {
  * Retrive products 
  */
 const products = [
-    {name: 'laptop', price: 20000},
-    {name: 'mouse', price: 300},
-    {name: 'keyboard', price: 450},
-    {name: 'pendrive', price: 1050},
+    {name: 'laptop', price: 20000, status: 'pending'},
+    {name: 'mouse', price: 300, status: 'success'},
+    {name: 'keyboard', price: 450, status: 'pending'},
+    {name: 'pendrive', price: 1050, status: 'success'},
 ];
 
 /** 
@@ -48,11 +48,11 @@ for (let i = 0; i < products.length; i++) {
      * Add discount price to the existing object.
      */
 
-    // products[i].discountPrice = discountPrice;
+    products[i].discountPrice = discountPrice;
 
     // console.log(discountPrice);
 }
-
+// console.log(products);
 
 /**
  * Solution: 02 => Object.assign()
@@ -126,12 +126,50 @@ const discountByFunction = products.map(function (product) {
 /**
  * for...of
  */
-for (const student of students) {
-    console.log(student);
+let totalPrice = 0;
+for (const product of products) {
+    totalPrice += product.price
 }
 
 
-// console.log(discountByFunction);
+/**
+ * Filter active students and store in seperate array 
+ */
+// Store active students 
+const activeProducts = [];
+/**
+ * visit the every student
+ */
+for (const product of products) {
+    /** 
+     * only active stduent are added to the list
+     */
+    if (product.status === 'success') {
+        activeProducts.push(product)
+    }
+}
+
+/**
+ * product discount by for..of
+ */
+
+for (const product of products) {
+    /**
+     * Store Product discout price
+     * Store Product Discount Amount
+     */
+    const discountPercentage = 10;
+    const discountAmount = product.price * (discountPercentage / 100);
+    const discountPrice = product.price - discountAmount;
+    product.discountAmount = discountAmount;
+    product.discountPrice = discountPrice;
+
+    // console.log(discountPrice);
+
+}
+
+// console.log(products);
+
 
 
 

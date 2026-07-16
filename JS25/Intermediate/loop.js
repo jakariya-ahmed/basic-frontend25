@@ -26,10 +26,10 @@ for (let i = 0; i < students.length; i++) {
  * Retrive products 
  */
 const products = [
-    {name: 'laptop', price: 20000, status: 'pending'},
-    {name: 'mouse', price: 300, status: 'success'},
-    {name: 'keyboard', price: 450, status: 'pending'},
-    {name: 'pendrive', price: 1050, status: 'success'},
+    {id: 1, name: 'laptop', qty: 8, price: 20000, status: 'pending'},
+    {id: 2, name: 'mouse', qty: 5, price: 300, status: 'success'},
+    {id: 3, name: 'keyboard', qty: 3, price: 450, status: 'pending'},
+    {id: 4, name: 'pendrive', qty: 1, price: 1050, status: 'success'},
 ];
 
 /** 
@@ -48,7 +48,7 @@ for (let i = 0; i < products.length; i++) {
      * Add discount price to the existing object.
      */
 
-    products[i].discountPrice = discountPrice;
+    // products[i].discountPrice = discountPrice;
 
     // console.log(discountPrice);
 }
@@ -83,7 +83,7 @@ for (let i = 0; i < products.length; i++) {
  */
 const discountPrice = products.map((product) => ({
     ...product,
-    discountPrice: product.price * 0.9
+    // discountPrice: product.price * 0.9
 }));
 
 /**
@@ -95,7 +95,7 @@ const discountPrice = products.map((product) => ({
 const discountedPrice = products.reduce((result, product) => {
     result.push({
         ...product,
-        discountPrice: product.price * 0.9,
+        // discountPrice: product.price * 0.9,
     });
     return result;
 }, []); 
@@ -118,7 +118,7 @@ function addDiscount(product) {
 const discountByFunction = products.map(function (product) {
     return {
         ...product,
-        discountPrice: product.price * 0.9,
+        // discountPrice: product.price * 0.9,
     }
 });
 
@@ -161,14 +161,85 @@ for (const product of products) {
     const discountPercentage = 10;
     const discountAmount = product.price * (discountPercentage / 100);
     const discountPrice = product.price - discountAmount;
-    product.discountAmount = discountAmount;
-    product.discountPrice = discountPrice;
+    // product.discountAmount = discountAmount;
+    // product.discountPrice = discountPrice;
 
     // console.log(discountPrice);
 
 }
 
-// console.log(products);
+
+/**
+ * create discount by reduce()
+ */
+
+const discountByReduce = products.reduce((result, product) => {
+    const discountAmount = product.price * (10 / 1000);
+    result.push({
+        ...product,
+        // discountAmount,
+        // discountPrice: product.price - discountAmount,
+    });
+    return result;
+}, []);
+
+
+/**
+ * Industy Level problem solving
+ * Product add to card and calculate total with discount
+ */
+
+/**
+ * =======================================================================
+ */
+/**
+ * Store all cart products
+ */
+const cart = [];
+
+/**
+ * Add product to cart
+ */
+
+const product = products.find((item) => item.id === 3);
+
+if (product) {
+    cart.push({
+        ...product,
+        qty: 3,
+    });
+}
+
+/**
+ * Calculation Total price
+ */
+const discountPercentage = 10;
+const subtotal = cart.reduce((sum, item) => {
+return sum + item.price * item.qty;
+}, 0);
+/**
+ * Check the subtotal is >=== 500
+ */
+const applyDiscount = subtotal > 500 ? 10 : 0 ;
+/**
+ * Calculate Discount Amount
+ */
+const discountAmount = subtotal * (applyDiscount / 100);
+
+/**
+ * Calculate Discount price
+ */
+const discountedTotalPrice = subtotal - discountAmount;
+
+/* End
+ * =======================================================================
+ */
+
+console.log(`Sub Total: ${subtotal}`);
+console.log(`Discount Percentage: ${discountPercentage}`);
+console.log(`Discount Amount: ${discountAmount}`);
+console.log(`Total Price: ${discountedTotalPrice}`);
+console.log(product);
 
 
 

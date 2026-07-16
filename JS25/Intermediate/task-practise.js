@@ -80,7 +80,50 @@ const applyDiscount = produtsList.map((product) => {
     
 });
 
+/**
+* Solution 05: 
+ * By Helper Function() -> create new array without modify orignal array
+ */
 
-console.log(applyDiscount);
+function addDsicount(products, percentage) {
+    
+    return products.map(product => {
+        /**
+         * Calculate the discount amount
+         */
+        const discountAmount = product.price * (percentage / 100);
+        /**
+         * create new two object properties
+         */
+        return {
+            ...product,
+            discountAmount,
+            discountPrice: product.price - discountAmount,
+        }
+    })
+}
+
+const discountedProducts = addDsicount(produtsList, discountPercentage);
+
+
+/**
+* Solution 06: 
+ * By reduce() -> create new array without modify orignal array
+ */
+
+const discountAbleProducts = produtsList.reduce((result, product) => {
+    const discountAmount = product.price * (discountPercentage / 100);
+    result.push({
+        ...product,
+        discountAmount,
+        discountPrice: product.price - discountAmount,
+    });
+
+    return result;
+
+}, []);
+
+
+// console.log(discountAbleProducts);
 
 
